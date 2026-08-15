@@ -1,0 +1,10 @@
+{
+  "name": "neo-bank",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:frontend": "npm install --prefix frontend/bank",
+    "start:frontend": "npm start --prefix frontend/bank",
+    "build:frontend": "npm run build --prefix frontend/bank"
+  }
+}
