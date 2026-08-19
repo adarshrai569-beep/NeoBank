@@ -1,6 +1,8 @@
 package com.bank.service.impl;
 
 import com.bank.dto.AdminDashboardDTO;
+import com.bank.repository.AccountRepository;
+
 import com.bank.dto.UserStatusUpdateDTO;
 import com.bank.entity.User;
 import com.bank.repository.AdminDashboardRepository;
@@ -25,6 +27,9 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class AdminDashboardServiceImplTest {
+	
+	@Mock
+	private AccountRepository accountRepository;
 
     @Mock
     private AdminDashboardRepository adminDashboardRepository;
@@ -48,14 +53,15 @@ class AdminDashboardServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        service = new AdminDashboardServiceImpl(
-                adminDashboardRepository,
-                loanApplicationRepository,
-                userRepository,
-                transactionRepository,
-                loginEventRepository,
-                dataSource
-        );
+    	service = new AdminDashboardServiceImpl(
+    	        adminDashboardRepository,
+    	        loanApplicationRepository,
+    	        userRepository,
+    	        transactionRepository,
+    	        loginEventRepository,
+    	        accountRepository,
+    	        dataSource
+    	);
     }
 
     @Test
